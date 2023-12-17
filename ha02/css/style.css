@@ -1,0 +1,45 @@
+tr {
+    text-align: center;
+    vertical-align: middle;
+}
+
+img {
+    vertical-align: middle;
+}
+
+tr:nth-child(even) {
+    background-color: lightgray;
+}
+
+tr:nth-child(odd) {
+    background-color: grey;
+}
+
+tr:nth-child(2), tr:nth-child(4) {
+    background-color: lightblue;
+    font-weight: bold;
+}
+
+tr:nth-child(3), tr:nth-child(5) {
+    background-color: mediumblue;
+}
+
+tr:nth-child(6) {
+    background-color: lightsalmon;
+}
+
+tr:nth-child(7) {
+    background-color: green;
+}
+
+tr:nth-last-child(1) {
+    background-color: red;
+}
+
+tr:nth-last-child(2) {
+    background-color: lightcoral;
+}
+
+tr:nth-last-child(3) {
+    background-color: orange;
+}
