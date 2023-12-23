@@ -1,5 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
+import Header from './components/Header.vue';
+import Board from './components/Board.vue';
 // TODO: imports
 
 /* DO NOT MODIFY SCRIPT BELOW */
@@ -41,9 +43,12 @@ onMounted(loadColumns);
 </script>
 
 <template>
-    <!-- TODO: implement -->
+	<Header 
+		:title="title" />
+	<Board
+		:columns="columns" />
 </template>
 
 <style scoped>
-
+	
 </style>
