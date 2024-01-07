@@ -8,7 +8,7 @@
 </script>
 
 <template>
-    <div class="card">
+    <div class="card mt-3">
         <div class="card-header">
             {{ task.title }}
         </div>
@@ -19,16 +19,14 @@
             </p>
         </div>
         <div class="card-footer">
-            <div v-for="(tag, index) of task.tags" :key="index">
-                <Tag :tag="tag" />
+            <div v-for="(tag, index) of task.tags" :key="index" class="d-inline">
+                <Tag 
+                :tag="tag" />
             </div>
         </div>
     </div>
 </template>
 
 <style scoped>
-    .card-footer {
-        display: flex;
-        flex-wrap: wrap;
-    }
+
 </style>

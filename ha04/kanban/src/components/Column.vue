@@ -4,7 +4,7 @@
 </script>
 
 <template>
-    <h4 class="text-light">{{ item.name }}</h4>
+    <h4 class="text-light pt-4">{{ item.name }}</h4>
     <div v-for="(item, index) of item.tasks" :key="index">
         <TaskCard 
         :task="item" />
@@ -12,7 +12,5 @@
 </template>
 
 <style scoped>
-    h4 {
-        padding-top: 1.25rem;
-    }
+
 </style>

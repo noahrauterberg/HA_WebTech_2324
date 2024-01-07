@@ -24,7 +24,7 @@
             color = "light";
             break;
     }
-    const badgeClass = `badge bg-${color}`;
+    const badgeClass = `badge bg-${color} ms-2`;
 </script>
 
 <template>
@@ -32,7 +32,5 @@
 </template>
 
 <style scoped>
-    span {
-        margin-left: 0.5rem;
-    }
+
 </style>
