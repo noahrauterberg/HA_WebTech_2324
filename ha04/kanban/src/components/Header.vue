@@ -5,8 +5,8 @@
 <template>
   <nav class="navbar bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img src="../../public/favicon.ico" alt="Icon" width="24px" height="24px" class="d-inline-block align-text-top">
+      <a class="navbar-brand fw-semibold" href="#">
+        <img src="../../favicon.ico" alt="Icon" width="24px" height="24px" class="d-inline-block align-text-top">
         {{ title }}
       </a>
     </div>

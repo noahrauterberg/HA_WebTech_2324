@@ -9,7 +9,7 @@
 
 <template>
     <div class="card mt-3">
-        <div class="card-header">
+        <div class="card-header fw-semibold">
             {{ task.title }}
         </div>
         <div class="card-body" @click="toggleText">
