@@ -1,6 +1,6 @@
 <script setup>
 import { Modal } from 'bootstrap';
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import Tag from './Tag.vue';
 ///////////////////////////////////////////////
 // IDs to be used for the respective DOM elements in the template
@@ -30,13 +30,6 @@ let title = ref("");
 let description = ref("");
 let taskTags = ref([]);
 
-function resetRefs() {
-    column.value=0;
-    title.value="";
-    description.value="";
-    taskTags.value=[];
-}
-
 function createTask() {
     let obj = {
         column: column.value,
@@ -47,9 +40,17 @@ function createTask() {
         }
     }
     emit("createTask", obj);
-
-    resetRefs();
 }
+
+onMounted(() => {
+    const modal = document.getElementById("modalRoot");
+    modal.addEventListener("hidden.bs.modal", evt => {
+        column.value=0;
+        title.value="";
+        description.value="";
+        taskTags.value=[];
+    });
+});
 </script>
 
 <template>
@@ -90,7 +91,7 @@ function createTask() {
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" :id="MODAL_BUTTON_CANCEL" class="btn btn-secondary" data-bs-dismiss="modal" @click="resetRefs">Cancel</button>
+                <button type="button" :id="MODAL_BUTTON_CANCEL" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 <button type="button" :id="MODAL_BUTTON_SUBMIT" class="btn btn-primary" data-bs-dismiss="modal" @click="createTask">Create</button>
             </div>
             </div>
