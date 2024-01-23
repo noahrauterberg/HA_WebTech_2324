@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue';
 import Board from './components/Board.vue';
 import Header from '@/components/Header.vue';
+import Modal from './components/Modal.vue';
 
 const tags = ref([]);
 const columns = ref([]);
@@ -55,10 +56,17 @@ onMounted(() => {
     loadTags()
     loadColumns()
 });
+
+function createTask(task) {
+	columns.value[task.column].tasks.push(task.newTask);
+}
 </script>
 
 <template>
-    <!-- TODO: add Modal component and event handling -->
     <Header :title="title" />
     <Board :columns="columns" />
+	<Modal 
+	:columns="columns" 
+	:tags="tags"
+	@createTask="createTask" />
 </template>

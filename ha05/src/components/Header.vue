@@ -27,7 +27,9 @@ defineProps({
                 {{ title }}
             </span>
 
-            <!-- TODO: button -->
+            <button type="button" id="buttonToggleModal" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalRoot">
+                Create new task
+            </button>
         </div>
     </nav>
 </template>x
