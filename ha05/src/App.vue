@@ -58,6 +58,7 @@ onMounted(() => {
 });
 
 function createTask(task) {
+	console.log(task);
 	columns.value[task.column].tasks.push(task.newTask);
 }
 </script>

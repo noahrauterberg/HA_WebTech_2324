@@ -25,6 +25,9 @@ const MODAL_BUTTON_SUBMIT = 'modalButtonSubmit' // for the modal's submit button
 const props = defineProps(["columns", "tags"]);
 const emit = defineEmits(["createTask"])
 
+let taskCount = 9;
+let create = false;
+
 let column = ref(0);
 let title = ref("");
 let description = ref("");
@@ -34,17 +37,23 @@ function createTask() {
     let obj = {
         column: column.value,
         newTask: {
+            id: `t${taskCount}`,
             title: title.value,
             text: description.value,
             tags: taskTags.value
-        }
-    }
-    emit("createTask", obj);
+            }
+        };
+        taskCount++;
+        emit("createTask", obj);
+        const modal = document.getElementById(MODAL_ID);
+        const bsModal = Modal.getInstance(modal)
+        bsModal.hide();
 }
 
 onMounted(() => {
-    const modal = document.getElementById("modalRoot");
-    modal.addEventListener("hidden.bs.modal", evt => {
+    const modal = document.getElementById(MODAL_ID);
+    modal.addEventListener("hidden.bs.modal", () => {
+        create = false;
         column.value=0;
         title.value="";
         description.value="";
@@ -92,7 +101,7 @@ onMounted(() => {
             </div>
             <div class="modal-footer">
                 <button type="button" :id="MODAL_BUTTON_CANCEL" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" :id="MODAL_BUTTON_SUBMIT" class="btn btn-primary" data-bs-dismiss="modal" @click="createTask">Create</button>
+                <button type="button" :id="MODAL_BUTTON_SUBMIT" class="btn btn-primary" @click="createTask()">Create</button>
             </div>
             </div>
         </div>
